@@ -1,4 +1,3 @@
-const { colors, screens } = require('tailwindcss/defaultTheme')
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
@@ -10,7 +9,6 @@ module.exports = {
   },
     extend: {
       colors: {
-        ...colors,
         tci: {
           background: '#F9FBFA',
           pos: '#00E396',
@@ -20,13 +18,14 @@ module.exports = {
         }
       },
       screens: {
-        ...screens,
         fone: '360px'
       },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      zIndex: ['hover']
+    },
   },
   plugins: [],
 }

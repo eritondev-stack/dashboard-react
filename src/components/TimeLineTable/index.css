@@ -1,0 +1,46 @@
+
+thead th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 61;
+  background-color: white;
+}
+
+thead th:first-child{
+  left: 0;
+  z-index: 63;
+  background-color: white;
+}
+
+tbody {
+  overflow: scroll;
+}
+
+/* MAKE LEFT COLUMN FIXEZ */
+tr > :first-child {
+  position: -webkit-sticky;
+  position: sticky; 
+  left: 0; 
+  background-color: rgb(255, 255, 255);
+  z-index: 62;
+}
+
+::-webkit-scrollbar:horizontal {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

@@ -1,4 +1,7 @@
 @import 'tailwindcss/base';
+button:focus {
+    outline: none !important;
+  }
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import '@material-tailwind/react/tailwind.css';

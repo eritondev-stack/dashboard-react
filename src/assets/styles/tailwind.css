@@ -190,7 +190,7 @@ Remove the inner border and padding in Firefox.
 Restore the focus styles unset by the previous rule.
 */
 :-moz-focusring {
-	outline: 1px dotted ButtonText;
+	/* outline: 1px dotted ButtonText; */
 }
 /**
 Remove the additional ':invalid' styles in Firefox.
@@ -1109,7 +1109,7 @@ Remove the inner border and padding in Firefox.
 Restore the focus styles unset by the previous rule.
 */
 :-moz-focusring {
-	outline: 1px dotted ButtonText;
+	/* outline: 1px dotted ButtonText; */
 }
 /**
 Remove the additional ':invalid' styles in Firefox.
@@ -1201,8 +1201,8 @@ button {
  * results in a loss of the default `button` focus styles.
  */
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+/*   outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color; */
 }
 fieldset {
   margin: 0;
@@ -1332,7 +1332,7 @@ select,
 textarea {
   padding: 0;
   line-height: inherit;
-  color: inherit;
+ /*  color: inherit; */
 }
 /**
  * Use the configured 'mono' font family for elements that

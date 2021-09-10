@@ -5,12 +5,11 @@ import { useState } from "react";
 import { useRef } from "react";
 import parse from "html-react-parser";
 import "suneditor/dist/css/suneditor.min.css";
-import Button from '@material-tailwind/react/Button.js'
+import Button from "@material-tailwind/react/Button.js";
 import JoditReact from "jodit-react-ts";
-import Dialog from '@material-ui/core/Dialog';
-import 'jodit/build/jodit.min.css';
-
-
+import Dialog from "@material-ui/core/Dialog";
+import "jodit/build/jodit.min.css";
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 
 var chart: ApexCharts;
 
@@ -21,18 +20,11 @@ interface Props {
 const Teste: React.FC<Props> = ({ nameProp }) => {
   const [name, setName] = useState<string>("");
   const [cidade, setCidade] = useState<string>("");
-  const [open, setOpen] = useState<boolean>(false)
+  const [open, setOpen] = useState<boolean>(false);
   const [html, setHtml] = useState<string>(`
-  <p>&nbsp;</p>
-<p><span style="color: rgb(0, 0, 255);">Eriton Gomes De Souza: </span><span style="color: rgb(166, 77, 121);">Eriton Gomes De Souza Da Silva Sales da Silva</span></p>
-<p><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 0);">Marcelo Carmo Da Silva Sales.<span style="background-color: rgb(255, 255, 255);"> Eriton Gomes De Souza</span></span></p>
-<p><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 0);"><span style="background-color: rgb(255, 255, 255);"><br></span></span></p>
-<p><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 0);"><span style="background-color: rgb(255, 255, 255);"><br></span></span></p>
+  <p><strong>Eriton Gomes De Souza,</strong> <span style="color: rgb(56, 118, 29);">fazendo o dashboard em react:&nbsp;</span><img src="https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?cs=srgb&amp;dl=pexels-kaboompics-com-6224.jpg&amp;fm=jpg" alt="Dashboard" style="width: 398px; height: 265px;"></p>
   `);
   const divRef = useRef<HTMLDivElement>(null);
-
-
-
 
   function renderCharts() {
     var options = {
@@ -71,14 +63,40 @@ const Teste: React.FC<Props> = ({ nameProp }) => {
   useEffect(() => {
     renderCharts();
   }, [name]);
-
+  const percentage = 90;
   return (
     <div>
-      <Dialog open={open} >
-        <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis quos earum commodi ullam iusto sint rerum unde voluptas quisquam, accusamus adipisci quibusdam porro veritatis quo velit non molestias fugit doloribus!</div>
+      <Dialog open={open}>
+        <div>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis
+          quos earum commodi ullam iusto sint rerum unde voluptas quisquam,
+          accusamus adipisci quibusdam porro veritatis quo velit non molestias
+          fugit doloribus!
+        </div>
         <Button onClick={() => setOpen(open ? false : true)}>Selecionar</Button>
       </Dialog>
       <div>
+        <div className="w-64 h-64 m-5">
+          <CircularProgressbarWithChildren
+            value={percentage}
+            styles={{
+              background: {
+                fill: "green",
+              },
+              path: {
+                stroke: "blueviolet",
+              },
+              trail: {
+                stroke: "#EBE1E1",
+              },
+            }}
+          >
+          <div className="flex flex-col">
+         {/*  <div className="text-4xl text-center font-bold text-gray-700">Evolução</div> */}
+          <div className="text-7xl text-center font-bold text-gray-700">{percentage}%</div>
+          </div>
+          </CircularProgressbarWithChildren>
+        </div>
         <div>
           <div>
             <div>Name: {name}</div>
@@ -100,8 +118,9 @@ const Teste: React.FC<Props> = ({ nameProp }) => {
         </div>
         <div>
           <div>
-            <div className='text-tci-pos'>Eriton</div>
-            <Button onClick={() => setOpen(open ? false : true)}>Selecionar</Button>
+            <Button onClick={() => setOpen(open ? false : true)}>
+              Selecionar
+            </Button>
             <div
               ref={divRef}
               id="chart"
@@ -112,8 +131,23 @@ const Teste: React.FC<Props> = ({ nameProp }) => {
           </div>
         </div>
         <div>
+          <>
+            <JoditReact
+              onChange={(content) => setHtml(content)}
+              defaultValue={html}
+            />
+          </>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-  {/*         <SunEditor
+export default Teste;
+
+// eslint-disable-next-line no-lone-blocks
+{
+  /*         <SunEditor
             autoFocus={true}
             width="100%"
             height="150px"
@@ -134,14 +168,5 @@ const Teste: React.FC<Props> = ({ nameProp }) => {
             }}
             setContents={html}
             onChange={(content: string) => setHtml(content)}
-          /> */}
- <>
-      <JoditReact onChange={(content) => setHtml(content)} defaultValue={html} />
-    </>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Teste;
+          /> */
+}
