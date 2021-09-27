@@ -152,7 +152,7 @@ function TimeLineHeader() {
               }}
             >
               {index === 0 || item.mounth === "jan" ? (
-                <div className="text-center text-gray-700 font-bold bg-white box-border rounded-full">
+                <div className="text-center text-white font-bold bg-indigo-500 box-border rounded-full">
                   {item.year}
                 </div>
               ) : (
@@ -174,7 +174,7 @@ function TimeLineHeader() {
                 minWidth: item.countDays * unit,
               }}
             >
-              <div className="text-center text-gray-600 bg-gray-300 border box-border">
+              <div className="text-center text-gray-900 bg-gray-300 border box-border">
                 {item.mounth}
               </div>
             </div>

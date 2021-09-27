@@ -16,8 +16,6 @@ import { useEffect } from "react";
 import { max, min } from "date-fns";
 import "./index.css";
 import { useRef } from "react";
-import { Button } from "@material-ui/core";
-//total width / total dias = pixes
 
 const TimeLine: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -88,15 +86,6 @@ const TimeLine: React.FC = () => {
             }}
           />
         </div>
-
-        <div>
-          <Button color="primary" onClick={() => setUnit(unit + 0.5)}>
-            +
-          </Button>
-          <Button color="secondary" onClick={() => setUnit(unit - 0.5)}>
-            -
-          </Button>
-        </div>
       </div>
       <div className="flex flex-row">
         <div className="m-2"></div>
@@ -116,10 +105,91 @@ const TimeLine: React.FC = () => {
           overflow: "scroll",
         }}
       >
-        <table>
-          <thead>
+        <table className="font-serif">
+          <thead className="bg-gray-200">
             <tr>
-              <th></th>
+              <th className="bg-gray-200">
+                <div
+                  className="flex justify-center items-end relative"
+                  style={{
+                    height: "103px",
+                  }}
+                >
+                  <div className="absolute top-0 left-0">
+                    <div className="h-6 bg-gray-300 m-3 px-2 flex flex-row rounded-md">
+                      <div
+                        onClick={() => setUnit(unit + 0.1)}
+                        className="cursor-pointer"
+                      >
+                        <span className="material-icons-outlined select-none">
+                          zoom_in
+                        </span>
+                      </div>
+                      <div
+                        onClick={() => setUnit(unit - 0.1)}
+                        className="cursor-pointer"
+                      >
+                        <span className="material-icons-outlined select-none">
+                          zoom_out
+                        </span>
+                      </div>
+                      <div className="cursor-pointer">
+                        <span className="material-icons-outlined select-none">
+                          format_list_numbered
+                        </span>
+                      </div>
+                      <div className="cursor-pointer">
+                        <span className="material-icons-outlined select-none">
+                          add_circle_outline
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>Atividade</div>
+                </div>
+              </th>
+              <th
+                style={{
+                  position: "sticky",
+                  left: "239px",
+                  zIndex: 62,
+                }}
+                className="bg-gray-200"
+              >
+                <div
+                  className="flex justify-center items-end "
+                  style={{
+                    height: "103px",
+                    width: "106px",
+                  }}
+                >
+                  <div className="flex flex-col">
+                    <div>Baseline</div>
+                    <div>Original</div>
+                  </div>
+                </div>
+              </th>
+              <th
+                style={{
+                  position: "sticky",
+                  left: "342px",
+                  zIndex: 62,
+                }}
+                className="bg-gray-200"
+              >
+                <div
+                  className="flex justify-center items-end"
+                  style={{
+                    height: "103px",
+                    width: "106px",
+                  }}
+                >
+                  <div className="flex flex-col">
+                    <div>Baseline</div>
+                    <div>Atual</div>
+                  </div>
+                </div>
+              </th>
               <th>
                 <TimeLineHeader></TimeLineHeader>
               </th>

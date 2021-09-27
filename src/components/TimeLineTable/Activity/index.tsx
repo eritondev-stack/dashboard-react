@@ -1,11 +1,10 @@
 import { Tooltip } from "@material-ui/core";
-import { differenceInDays } from "date-fns";
+import { differenceInDays, format } from "date-fns";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { IActivities } from "../../../models";
 import { dateHeaderStartState, unitState } from "../../../recoil";
-
 
 interface Props {
   activity: IActivities;
@@ -24,7 +23,7 @@ function Activity({ activity }: Props) {
   return (
     <>
       <tr>
-        <td>
+        <td className="bg-white">
           <div
             onMouseEnter={() => setShowEdit(true)}
             onMouseLeave={() => setShowEdit(false)}
@@ -33,7 +32,7 @@ function Activity({ activity }: Props) {
               minWidth: "240px",
               maxWidth: "240px",
             }}
-            className="mt-1 text-gray-600 cursor-pointer flex flex-row justify-start hover:text-blue-800 hover:font-bold"
+            className="mt-1 text-gray-900 cursor-pointer flex flex-row justify-start hover:text-blue-800 hover:font-bold bg-white"
           >
             <div
               style={{
@@ -50,24 +49,49 @@ function Activity({ activity }: Props) {
             >
               {showEdit ? (
                 <Tooltip title="Editar" placement="right" enterDelay={500}>
-                <div
-                  style={{
-                    color: activity.color,
-                  }}
-                  className="material-icons-outlined text-red-100"
-                >
-                  mode_edit
-                </div>
+                  <div
+                    style={{
+                      color: activity.color,
+                    }}
+                    className="material-icons-outlined text-red-100"
+                  >
+                    mode_edit
+                  </div>
                 </Tooltip>
               ) : (
                 <></>
               )}
             </div>
-            <div className="ml-2 truncate transition-all duration-300 ease-in-out">
+            <div className="ml-2 truncate transition-all duration-300 ease-in-out bg-white">
               {activity.nome}
             </div>
           </div>
         </td>
+        <td
+        className="px-3 text-gray-900 text-center"
+          style={{
+            position: "sticky",
+            left: "240px",
+            width: '106px',
+            backgroundColor: "rgb(255, 255, 255)",
+            zIndex: 62,
+          }}
+        >
+          { activity.endDateInicial ? format(activity.endDateInicial, 'dd/MM/yyyy') : '-'}
+        </td>
+        <td
+        className="px-3 text-gray-900 text-center"
+          style={{
+            position: "sticky",
+            width: '106px',
+            left: "342px",
+            backgroundColor: "rgb(255, 255, 255)",
+            zIndex: 62,
+          }}
+        >
+          { activity.endDate ? format(activity.endDate, 'dd/MM/yyyy') : '-'}
+        </td>
+        {/*   <td>adsasd</td> */}
         <td>
           <div
             style={{
@@ -77,7 +101,7 @@ function Activity({ activity }: Props) {
               left:
                 differenceInDays(activity.startDate, dateHeaderStart) * unit +
                 "px",
-              zIndex: upZindex ? 50 : 10 
+              zIndex: upZindex ? 50 : 10,
             }}
             onMouseEnter={() => setZindex(true)}
             onMouseLeave={() => setZindex(false)}
@@ -91,14 +115,15 @@ function Activity({ activity }: Props) {
             ></div>
             <div
               style={{
-                width: ((activity.percentual ? activity.percentual : 0)  * 100)  + "%",
+                width:
+                  (activity.percentual ? activity.percentual : 0) * 100 + "%",
                 backgroundColor: activity.color,
               }}
               className="h-full text-white text-sm select-none text-center relative w-0 rounded-md transition-all duration-300 ease-in-out"
             >
-             {
-              ((activity.percentual ? activity.percentual : 0)  * 100).toFixed(0)  + "%"
-             }
+              {((activity.percentual ? activity.percentual : 0) * 100).toFixed(
+                0
+              ) + "%"}
             </div>
           </div>
         </td>

@@ -34,34 +34,38 @@ export const activitiesState = atom<IActivities[]>({
       nome: "Planejamento",
       startDate: new Date("2021-01-01 00:00:00"),
       endDate: new Date("2021-02-30 00:00:00"),
+      endDateInicial: new Date("2021-02-30 00:00:00"),
       color: "#2563EB",
-      percentual: 0.9
+      percentual: 1
     },
     {
       id: 1,
-      nome: "Planejamento",
+      nome: "Desenvolvimento",
       startDate: new Date("2021-02-01 00:00:00"),
       endDate: new Date("2021-05-30 00:00:00"),
+      endDateInicial:  new Date("2021-05-30 00:00:00"),
       color: "#2563EB",
-      percentual: 0.9
+      percentual: 1
     },
   
     {
       id: 1,
-      nome: "Planejamento",
+      nome: "Homologação",
       startDate: new Date("2021-06-01 00:00:00"),
       endDate: new Date("2021-08-30 00:00:00"),
+      endDateInicial: new Date("2021-08-30 00:00:00"),
       color: "#2563EB",
-      percentual: 0.9
+      percentual: 1
     },
 
     {
       id: 1,
-      nome: "Planejamento",
+      nome: "Validação",
       startDate: new Date("2021-03-01 00:00:00"),
-      endDate: new Date("2022-08-30 00:00:00"),
+      endDate: new Date("2021-12-30 00:00:00"),
+      endDateInicial: new Date("2021-12-30 00:00:00"),
       color: "blueviolet",
-      percentual: 0.3
+      percentual: 0.5
     },
    
   ], // default value (aka initial value)

@@ -3,6 +3,7 @@ export interface IActivities {
     nome: string;
     startDate: Date;
     endDate: Date;
+    endDateInicial?: Date | null;
     color: string;
     percentual?: number
   }

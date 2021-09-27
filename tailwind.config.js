@@ -6,15 +6,18 @@ module.exports = {
       sans: ['Roboto', 'sans-serif'],
       serif: ['"Roboto Slab"', 'serif'],
       body: ['Roboto', 'sans-serif'],
-  },
+    },
     extend: {
       colors: {
-        tci: {
-          background: '#F9FBFA',
-          pos: '#00E396',
-          p: '#707070',
-          c: '#C6C1C1',
-          backgroundTd: '#F9FBFA'
+        cetelem: {
+          'green-1': '#007d51',
+          'green-2': '#00a76c',
+          'gray-1': '#616161',
+          'gray-2': '#ebe1e1',
+          'gray-3': '#edf1dd',
+           red: '#fe0606',
+           yellow: '#feab06',
+           blue: '##03a5f0',
         }
       },
       screens: {
