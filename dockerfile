@@ -15,6 +15,8 @@ USER node
 
 RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
 
+EXPOSE 3000
+
 # Inicializa a aplicação
 CMD ["npm", "start"]
 
